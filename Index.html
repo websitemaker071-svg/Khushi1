@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Khushi ❤️</title>
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI';
+  overflow:hidden;
+}
+
+/* PAGE */
+.page {
+  display:none;
+  height:100vh;
+  width:100%;
+  color:white;
+
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.active { display:flex; }
+
+/* BOX */
+.box {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+/* BUTTON */
+button {
+  margin:10px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  background: linear-gradient(45deg,#ff4e50,#fc913a);
+  color:white;
+}
+
+/* MESSAGE */
+.msg {
+  margin-top:10px;
+  background:black;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+}
+
+/* RAIN */
+.rain span {
+  position:absolute;
+  font-size:25px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall {
+  from { transform:translateY(-100px); }
+  to { transform:translateY(100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" style="background:linear-gradient(45deg,pink,hotpink)">
+<div class="box">
+<h1>💖 Special For Khushi 💖</h1>
+<p>Tum meri life ka sabse beautiful part ho 💫</p>
+<button onclick="nextPage(1)">Next ➡</button>
+<button onclick="showMsg(this,'Samajh jao na 😊')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain1"></div>
+</div>
+
+<!-- PAGE 2 (SONG) -->
+<div class="page" style="background:linear-gradient(45deg,yellow,orange)">
+<div class="box">
+<h2>🎵 Song For You 🎵</h2>
+<audio controls>
+<source src="song.mp3">
+</audio>
+<p>Ye gaana sirf tumhare liye 😊</p>
+<button onclick="nextPage(2)">Next ➡</button>
+<button onclick="showMsg(this,'Gaana suno 😊')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain2"></div>
+</div>
+
+<!-- PAGE 3 (FULL VIDEO) -->
+<div class="page" style="background:black">
+
+<video style="height:100vh;width:100%;object-fit:cover" controls>
+<source src="video.mp4">
+</video>
+
+<button style="position:absolute;bottom:20px;" onclick="nextPage(3)">Next ➡</button>
+<div class="rain" id="rain3"></div>
+</div>
+
+<!-- PAGE 4 (PHOTO SLIDER) -->
+<div class="page" style="background:black">
+
+<img id="photo" src="img1.jpg"
+style="height:100vh;width:100%;object-fit:cover">
+
+<div style="position:absolute;bottom:20px;">
+<button onclick="prevPhoto()">⬅ Back</button>
+<button onclick="nextPhoto()">Next ➡</button>
+<button onclick="nextPage(4)">Next Page ➡</button>
+</div>
+
+<div class="rain" id="rain4"></div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" style="background:linear-gradient(45deg,purple,violet)">
+<div class="box">
+<p>Tumhari smile best hai 😊</p>
+<p>Tumhari baate mast hoti hai 😄</p>
+<button onclick="nextPage(5)">Next ➡</button>
+<button onclick="showMsg(this,'Sach bol raha hu 😄')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain5"></div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" style="background:linear-gradient(45deg,green,lightgreen)">
+<div class="box">
+<p>Tum ho toh sab achha lagta hai 😊</p>
+<p>Tu ek great friend hai 💫</p>
+<button onclick="nextPage(6)">Next ➡</button>
+<button onclick="showMsg(this,'Best friend 😎')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain6"></div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page" style="background:linear-gradient(45deg,skyblue,blue)">
+<div class="box">
+<p>Har din tujhse baat karna achha lagta hai 💬</p>
+<p>Tu important hai 😊</p>
+<button onclick="nextPage(7)">Next ➡</button>
+<button onclick="showMsg(this,'Samjhi? 😄')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain7"></div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page" style="background:linear-gradient(45deg,gold,orange)">
+<div class="box">
+<p>Tu hamesha happy rehna 😊</p>
+<p>Smile kabhi mat hataana 😄</p>
+<button onclick="nextPage(8)">Next ➡</button>
+<button onclick="showMsg(this,'Smile 😊')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain8"></div>
+</div>
+
+<!-- PAGE 9 -->
+<div class="page" style="background:linear-gradient(45deg,lightpink,hotpink)">
+<div class="box">
+<p>Life me aise hi shine karti reh ✨</p>
+<p>Tu best hai 💫</p>
+<button onclick="nextPage(9)">Next ➡</button>
+<button onclick="showMsg(this,'Always 😊')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain9"></div>
+</div>
+
+<!-- PAGE 10 (FRIEND ENDING) -->
+<div class="page" style="background:linear-gradient(45deg,cyan,blue)">
+<div class="box">
+<h2>🌸 THE END 🌸</h2>
+<p>You are a very special friend 😊</p>
+<p>Always stay happy & smiling ✨</p>
+<button onclick="nextPage(10)">Restart 🔁</button>
+<button onclick="showMsg(this,'Best friend 😄')">If you didn't understand</button>
+</div>
+<div class="rain" id="rain10"></div>
+</div>
+
+<script>
+function nextPage(n){
+let pages=document.querySelectorAll(".page");
+pages.forEach(p=>p.classList.remove("active"));
+if(n>=pages.length){pages[0].classList.add("active");}
+else{pages[n].classList.add("active");}
+}
+
+function showMsg(btn,text){
+let old=btn.parentElement.querySelector(".msg");
+if(old) old.remove();
+
+let m=document.createElement("div");
+m.className="msg";
+m.innerText=text;
+
+btn.parentElement.appendChild(m);
+}
+
+/* PHOTO SLIDER */
+let photos=["img1.jpg","img2.jpg","img3.jpg","img4.jpg"];
+let index=0;
+
+function nextPhoto(){
+index++;
+if(index>=photos.length) index=0;
+document.getElementById("photo").src=photos[index];
+}
+
+function prevPhoto(){
+index--;
+if(index<0) index=photos.length-1;
+document.getElementById("photo").src=photos[index];
+}
+
+/* RAIN */
+function rain(id,emoji){
+let c=document.getElementById(id);
+for(let i=0;i<20;i++){
+let s=document.createElement("span");
+s.innerHTML=emoji;
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(Math.random()*3+2)+"s";
+c.appendChild(s);
+}
+}
+
+rain("rain1","🌸");
+rain("rain2","🌻");
+rain("rain3","🌹");
+rain("rain4","💐");
+rain("rain5","🌼");
+rain("rain6","🌷");
+rain("rain7","🌺");
+rain("rain8","💮");
+rain("rain9","🏵");
+rain("rain10","🌹");
+</script>
+
+</body>
+</html>
